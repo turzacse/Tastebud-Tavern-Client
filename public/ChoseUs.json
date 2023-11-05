@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "img": "https://i.ibb.co/6HzPJ6c/why-icon-2.png",
+      "type": "Hygienic Food",
+      "description": "We prioritize food safety and cleanliness to ensure that every dish we serve is prepared in a hygienic environment, so you can enjoy your meal with peace of mind."
+    },
+    {
+      "id": 2,
+      "img": "https://i.ibb.co/B4K6Z2y/why-icon-1.png",
+      "type": "Fresh Environment",
+      "description": "Our restaurant offers a fresh and welcoming atmosphere. We believe in creating a comfortable environment where you can savor your meal and make lasting memories."
+    },
+    {
+      "id": 3,
+      "img": "https://i.ibb.co/VjJFfTb/why-icon-3.png",
+      "type": "Skilled Chefs",
+      "description": "Our team of skilled chefs is dedicated to crafting delicious and innovative dishes that delight your taste buds. We take pride in our culinary expertise."
+    },
+    {
+      "id": 4,
+      "img": "https://i.ibb.co/SXC5k0G/why-icon-4.png",
+      "type": "Event & Party",
+      "description": "Looking to host an event or celebration? We specialize in catering and organizing events, ensuring your special occasions are memorable and hassle-free."
+    }
+  ]
+  
