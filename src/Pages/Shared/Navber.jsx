@@ -1,14 +1,31 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navber = () => {
 
-    const links = [
+    const {logout,user} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () =>{
+        logout()
+            .then(res => {
+                navigate('/');
+            })
+            .catch()
+    }
+
+    const links = <>
         <li><NavLink to='/'>Home</NavLink></li>,
         <li><NavLink to='/allfood'>All Food Items</NavLink></li>,
         <li><NavLink to='/Blog'>Blog</NavLink></li>
-        
-    ]
+    </>
+
+    const profile = <>
+     <li><NavLink to='/addfood'>Add a Food Iteams</NavLink></li>
+     <li><NavLink to='/addedfood'>My added food items</NavLink></li>
+     <li><NavLink to='/orderedfood'>My ordered food items</NavLink></li>
+    </>
 
     return (
         <div className="shadow-2xl">
@@ -50,14 +67,15 @@ const Navber = () => {
                 </label>
 
                 {/* theme close  */}
+
                 {/* user  */}
-                {/* {user ? (
+                {user ? (
                     <>
 
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img className="rounded-full flex justify-center items-center mx-auto" src={user.photoURL || defualt} alt="user profile" />
+                                    <img className="rounded-full flex justify-center items-center mx-auto" src={user.photoURL} alt="user profile" />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -66,20 +84,23 @@ const Navber = () => {
                                         <h2>{user.displayName}</h2>
                                     </a>
                                 </li>
-                                <li><button className="" onClick={handlelogout}>Log Out</button></li>
+                                <li><button className="" onClick={handleLogout}>Log Out</button></li>
+                                {
+                                    profile
+                                }
                             </ul>
                         </div>
 
                     </>
                 ) : (
-                    // <NavLink className="btn btn-ghost capitalize" to="/login">
-                    //     Login
-                    // </NavLink>
-                )} */}
-                
-                <NavLink className="btn btn-ghost capitalize" to="/login">
+                    <NavLink className="btn btn-ghost capitalize" to="/login">
                         Login
                     </NavLink>
+                )}
+                
+                {/* <NavLink className="btn btn-ghost capitalize" to="/login">
+                        Login
+                </NavLink> */}
 
             </div>
         </div>

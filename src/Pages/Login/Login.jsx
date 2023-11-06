@@ -1,7 +1,27 @@
+import { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+
+    const {signIn} = useContext(AuthContext);
+
+    const handleLogIn = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        signIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
     return (
         <div className="p-4 bg-sky-200">
             
@@ -12,18 +32,18 @@ const Login = () => {
                     <img className="h-1/2 w-1/2 mx-auto mt-2" src="https://i.ibb.co/sFCdQRR/login.png" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full">
-                        <form className="card-body">
+                        <form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input name='email' type="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn text-white border-none bg-[#FF3811]">Login</button>
