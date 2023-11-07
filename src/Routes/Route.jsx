@@ -10,6 +10,7 @@ import AddedFood from "../Pages/Profile/AddedFood/AddedFood";
 import OrderedFood from "../Pages/Profile/OrderedFood/OrderedFood";
 import SingleFood from "../Pages/SingleFood/SingleFood";
 import Order from "../Pages/Order/Order";
+import Update from "../Pages/Profile/AddedFood/Update";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
           path: '/order/:id',
           element: <Order></Order>,
           loader: async() => await fetch('http://localhost:5000/users') 
+        },
+        {
+          path: '/update/:id',
+          element: <Update></Update>,
         }
       ]
     },
