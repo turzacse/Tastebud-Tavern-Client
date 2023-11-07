@@ -8,6 +8,8 @@ import Registration from "../Pages/Registration/Registration";
 import AddAFood from "../Pages/Profile/AddAFood/AddAFood";
 import AddedFood from "../Pages/Profile/AddedFood/AddedFood";
 import OrderedFood from "../Pages/Profile/OrderedFood/OrderedFood";
+import SingleFood from "../Pages/SingleFood/SingleFood";
+import Order from "../Pages/Order/Order";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +26,8 @@ const router = createBrowserRouter([
         },
         {
           path: '/allfood',
-          element: <AllFood></AllFood>
+          element: <AllFood></AllFood>,
+
         },
         {
           path: '/login',
@@ -45,6 +48,15 @@ const router = createBrowserRouter([
         {
           path: '/orderedfood',
           element: <OrderedFood></OrderedFood>
+        },
+        {
+          path: '/details/:id',
+          element: <SingleFood></SingleFood>,
+          // loader: async({params}) => await fetch(`http://localhost:5000/allfoods/${params.id}`)
+        },
+        {
+          path: '/order/:id',
+          element: <Order></Order>,
         }
       ]
     },

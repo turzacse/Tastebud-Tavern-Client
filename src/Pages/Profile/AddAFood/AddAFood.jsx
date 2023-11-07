@@ -36,7 +36,7 @@ const AddAFood = () => {
         console.log(foodName, foodCategory,img, quantity, origin, price, addedBy, email, description);
         const food = {foodName, foodCategory,img, quantity, origin, price, addedBy, email, description};
 
-        fetch('http://localhost:5000/foods', {
+        fetch('http://localhost:5000/allfoods', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
