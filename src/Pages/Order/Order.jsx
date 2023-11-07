@@ -106,7 +106,7 @@ const Order = () => {
                     </div>
                 </div>
 
-                <input className="btn bg-[#FF3811] border-none text-white font-semibold my-4" type="submit" value="Add Food" />
+                <input className="btn bg-[#FF3811] border-none text-white font-semibold my-4" type="submit" value="Purches Food"/>
             </form>
         </div>
                 </div>

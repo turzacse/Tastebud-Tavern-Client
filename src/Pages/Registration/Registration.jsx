@@ -1,10 +1,15 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Registration = () => {
 
     const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const navigate = useNavigate();
 
     const SignUp = e =>{
         e.preventDefault();
@@ -14,6 +19,23 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+
+        const capitalLetter = /[A-Z]/;
+        const specialCharacter = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+        setError('');
+        setSuccess('');
+        if(password.length < 6){
+            setError('PassWord should be 6 charecter or more!!');
+            return;
+        }
+        if(!capitalLetter.test(password)){
+            setError('Your PassWord should have at least one Capital Later');
+            return;
+        }
+        if(!specialCharacter.test(password)){
+            setError('Your PassWord should have at least one special charecter');
+            return;
+        }
 
         createUser(email, password)
         .then(result => {
@@ -28,13 +50,21 @@ const Registration = () => {
             })
             .then(res => res.json())
             .then(data =>{
-                // if(data.insertedID){
-                //     console.log('user added successfully to the database')
-                // }
+                setSuccess('User created successfully!');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                navigate('/');
+
             })
         })
         .catch(error => {
             console.log(error);
+            setError(error.message);
         })
     }
 
@@ -76,6 +106,12 @@ const Registration = () => {
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn text-white border-none bg-[#FF3811]">Login</button>
+                                    {
+                                        error && <p className="text-red-600 pt-4">{error}</p>
+                                    }
+                                    {
+                                        success && <p>{success}</p>
+                                    }
                                 </div>
                             </form>
                             <div>

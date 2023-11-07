@@ -11,6 +11,7 @@ import OrderedFood from "../Pages/Profile/OrderedFood/OrderedFood";
 import SingleFood from "../Pages/SingleFood/SingleFood";
 import Order from "../Pages/Order/Order";
 import Update from "../Pages/Profile/AddedFood/Update";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: '*',
+      element: <Error></Error>
+    }
   ]);
 
   export default router;
