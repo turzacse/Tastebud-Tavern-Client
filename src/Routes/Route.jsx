@@ -57,6 +57,7 @@ const router = createBrowserRouter([
         {
           path: '/order/:id',
           element: <Order></Order>,
+          loader: async() => await fetch('http://localhost:5000/users') 
         }
       ]
     },

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Order = () => {
@@ -20,9 +20,39 @@ const Order = () => {
                 console.error("Error fetching food data:", error);
             });
     }, [id]);
-    console.log(user);
-    const handleOrder = e =>{
+    //console.log(user);
 
+    const logger = useLoaderData();
+    //console.log(logger);
+    // const foundUserEmail = logger.find((userEmail) => userEmail.email === user.email);
+    // console.log(foundUserEmail);
+
+    const foundUserEmail = logger ? logger.find((userEmail) => userEmail.email === user.email) : null;
+
+    const buyerName = user && user.name ? user.name : foundUserEmail && foundUserEmail.name ? foundUserEmail.name : '';
+    const buyerEmail = user && user.email ? user.email : foundUserEmail && foundUserEmail.email ? foundUserEmail.email : '';
+
+    const handleOrder = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const foodName = form.name.value;
+        const price = form.price.value;
+        const date = form.date.value;
+        const quantity = form.quantity.value;
+        const buyerName = form.buyerName.value;
+        const buyerEmail = form.buyerEmail.value;
+        const orderInfo = {foodName, price, date, quantity, buyerName, buyerEmail};
+        console.log(orderInfo);
+
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(orderInfo)
+        })
+        .then(res => res.json())
+        .catch(error => console.log(error))
     }
     return (
         <div>
@@ -66,13 +96,13 @@ const Order = () => {
                         <label className="label">
                             <span className="label-text">Buyer Name</span>
                         </label>
-                        <input name='userName' type="text" placeholder="User Name" defaultValue={user.name} readOnly={user.name ? true : false} className="input input-bordered" required />
+                        <input name='buyerName' type="text" placeholder="User Name" defaultValue={buyerName} readOnly  className="input input-bordered" required />
                     </div>
                     <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text">Buyer Email</span>
                         </label>
-                        <input name='email' type="text" placeholder="User Email" defaultValue={user.email} readOnly={user.email ? true : false} className="input input-bordered" required />
+                        <input name='buyerEmail' type="text" placeholder="User Email" defaultValue={buyerEmail} readOnly className="input input-bordered" required />
                     </div>
                 </div>
 
