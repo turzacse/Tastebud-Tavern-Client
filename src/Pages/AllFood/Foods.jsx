@@ -6,7 +6,7 @@ const Foods = ({ food }) => {
     console.log(food);
     const {_id} = food;
     const {user} = useContext(AuthContext);
-    console.log('here: ',user.email, food.email);
+    //console.log('here: ',user.email, food.email);
     return (
         <div>
             <div className="card card-compact bg-sky-200 shadow-xl">
