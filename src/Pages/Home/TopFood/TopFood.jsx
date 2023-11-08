@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const TopFood = () => {
   const [topFood, setTopFood] = useState([]);
@@ -8,32 +9,22 @@ const TopFood = () => {
     fetch("http://localhost:5000/allfoods")
       .then((res) => res.json())
       .then((data) => {
-        // Calculate the number of orders for each food item
         const foodWithOrders = data.map((food) => ({
           ...food,
-          orders: 0, // Initialize with 0 orders
+          orders: 0, 
         }));
-
-        // You'll need to fetch order data and update the 'orders' property
-        // based on the actual number of orders for each food item.
-
-        // For now, simulate fetching order data and updating the 'orders' property.
-        // This is where you should update 'orders' with real order data.
         fetch("http://localhost:5000/order")
           .then((res) => res.json())
           .then((orderData) => {
-            // Simulate updating the 'orders' property based on order data
+            
             foodWithOrders.forEach((food) => {
               const ordersForFood = orderData.filter(
                 (order) => order.foodId === food._id
               );
               food.orders = ordersForFood.length;
             });
-
-            // Sort food items by the number of orders (top-selling items first)
             foodWithOrders.sort((a, b) => b.orders - a.orders);
 
-            // Set the top-selling food items to state (e.g., top 6)
             const top6Food = foodWithOrders.slice(0, 6);
             setTopFood(top6Food);
           });
@@ -44,21 +35,25 @@ const TopFood = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Top Food</h2>
-      <div className="grid grid-cols-3">
+    <div className="bg-sky-200 px-10 pb-20 my-10">
+      <div className="text-center pt-10">
+        <h2 className="text-5xl font-bold">Our Top Selling Foods</h2>
+        <p className="w-1/2 mx-auto my-4 text-gray-500">"Discover Culinary Bliss: Our Top Sellers. Taste the extraordinary! From succulent steaks to ocean-fresh seafood and gourmet delights, indulge in our finest creations. Satisfy your cravings at <span className="font-bold text-[#FF3811]">Tastebud Tavern</span></p>
+      </div>
+      <div className="grid grid-cols-3 gap-5">
         {topFood.map((food) => (
           <div key={food._id}>
-            <div>
-              <h3>{food.foodName}</h3>
-              <img className="w-[400px] h-[250px]" src={food.img} alt={food.foodName} />
+            <div className="rounded-2xl p-4 bg-black text-white">
+              <h3 className="text-xl font-bold mb-4">{food.foodName}</h3>
+              <img className="w-[400px] h-[250px] shadow-2xl rounded-2xl" src={food.img} alt={food.foodName} />
               <p>Category: {food.foodCategory}</p>
               <p>Price: ${food.price}</p>
-              <button>Details</button>
+              <Link className="btn btn-primary capitalize">Details</Link>
             </div>
           </div>
         ))}
       </div>
+      <Link className="btn bg-[#FF3811] border-none text-white capitalize flex mt-5 w-24 mx-auto" to='/allfood'>See more</Link>
     </div>
   );
 };
