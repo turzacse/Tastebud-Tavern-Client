@@ -12,7 +12,7 @@ const TopFood = () => {
     })
   }, []);
 
-  
+
 
   return (
     <div className="bg-sky-200 px-10 pb-20 my-10">
@@ -28,7 +28,7 @@ const TopFood = () => {
               <img className="w-[400px] h-[250px] shadow-2xl rounded-2xl" src={food.img} alt={food.foodName} />
               <p>Category: {food.foodCategory}</p>
               <p>Price: ${food.price}</p>
-              <Link className="btn btn-primary capitalize">Details</Link>
+              <Link to={`/details/${food._id}`} className="btn bg-orange-600 text-white border-none capitalize">Details</Link>
             </div>
           </div>
         ))}

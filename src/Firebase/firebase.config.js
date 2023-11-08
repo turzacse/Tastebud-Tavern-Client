@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA5Dxplx0SI7MBWl09k2Ctmnh8U6RC2GXw",
-  authDomain: "tastebud-tavern.firebaseapp.com",
-  projectId: "tastebud-tavern",
-  storageBucket: "tastebud-tavern.appspot.com",
-  messagingSenderId: "1098340087720",
-  appId: "1:1098340087720:web:a1655ff7b1600cab6e4f9d"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

@@ -9,10 +9,10 @@ const Foods = ({ food }) => {
                 <figure><img className="h-[200px] w-full rounded-2xl shadow-2xl" src={food.img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{food.foodName}</h2>
-                    <h2 className="btn bg-orange-400 w-1/3 capitalize border-none text-white">{food.foodCategory}</h2>
+                    <h2 className=" py-2 font-bold text-xl w-1/3 capitalize border-none">{food.foodCategory}</h2>
                     <div className="flex justify-between mr-10">
-                        <h2 className=""><span>Available Quantity</span> {food.quantity}</h2>
-                        <h2 className="">${food.price}</h2>
+                        <h2 className="text-lg"><span className=" font-bold">Available Quantity</span> {food.quantity}</h2>
+                        <h2 className="text-xl"><span className="font-bold">Price:</span> ${food.price}</h2>
                     </div>
 
                     <div className="card-actions justify-end">
