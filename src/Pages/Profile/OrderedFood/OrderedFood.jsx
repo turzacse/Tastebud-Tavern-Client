@@ -9,7 +9,7 @@ const OrderedFood = () => {
     const [myOrder, setMyOrder] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch('http://localhost:5000/order')
+        fetch('http://localhost:5000/order',{credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
