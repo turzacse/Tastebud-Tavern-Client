@@ -25,12 +25,12 @@ const SingleFood = () => {
             {food ? (
                 <div>
                     <div className=" bg-base-500">
-                        <div className="hero-content flex-col gap-10 lg:flex-row w-1/2 mx-auto">
-                            <div className="w-1/2 ">
-                            <img src={food.img} className="w-full rounded-2xl shadow-2xl" alt={food.foodName} />
+                        <div className="hero-content flex-col gap-10 lg:flex-row w-3/4 mx-auto">
+                            <div className=" h-[400px] w-1/3">
+                            <img src={food.img} className="w-full  rounded-2xl shadow-2xl" alt={food.foodName} />
                             <h1 className="bg-sky-300 p-4 rounded-2xl mt-10 text-3xl font-bold">{food.foodName}</h1>
                             </div>
-                            <div className="w-1/2 card-body bg-sky-200 shadow-2xl rounded-2xl">
+                            <div className="w-2/3 card-body bg-sky-200 shadow-2xl rounded-2xl">
                                 <h2>Food ctegory: {food.foodCategory}</h2>
                                 <h2>Price: {food.price}</h2>
                                 <h2>Made by: {food.addedBy}</h2>

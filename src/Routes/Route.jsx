@@ -12,6 +12,7 @@ import SingleFood from "../Pages/SingleFood/SingleFood";
 import Order from "../Pages/Order/Order";
 import Update from "../Pages/Profile/AddedFood/Update";
 import Error from "../Pages/Error/Error";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/order/:id',
-          element: <Order></Order>,
+          element: <PrivateRoute><Order></Order></PrivateRoute>,
           loader: async() => await fetch('http://localhost:5000/users') 
         },
         {

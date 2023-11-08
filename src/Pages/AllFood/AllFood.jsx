@@ -7,7 +7,7 @@ const AllFood = () => {
     const [filter, setFilter] = useState([]);
     const [query, setQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const recordsPerPages = 3;
+    const recordsPerPages = 9;
 
     console.log(foods);
     useEffect(() => {

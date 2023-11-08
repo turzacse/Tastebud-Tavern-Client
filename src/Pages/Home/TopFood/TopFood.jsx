@@ -5,34 +5,14 @@ const TopFood = () => {
   const [topFood, setTopFood] = useState([]);
 
   useEffect(() => {
-    // Fetch food data from your API
-    fetch("http://localhost:5000/allfoods")
-      .then((res) => res.json())
-      .then((data) => {
-        const foodWithOrders = data.map((food) => ({
-          ...food,
-          orders: 0, 
-        }));
-        fetch("http://localhost:5000/order")
-          .then((res) => res.json())
-          .then((orderData) => {
-            
-            foodWithOrders.forEach((food) => {
-              const ordersForFood = orderData.filter(
-                (order) => order.foodId === food._id
-              );
-              food.orders = ordersForFood.length;
-            });
-            foodWithOrders.sort((a, b) => b.orders - a.orders);
-
-            const top6Food = foodWithOrders.slice(0, 6);
-            setTopFood(top6Food);
-          });
-      })
-      .catch((error) => {
-        console.error("Error fetching food data:", error);
-      });
+    fetch('http://localhost:5000/topfoods')
+    .then(res => res.json())
+    .then(data => {
+      setTopFood(data);
+    })
   }, []);
+
+  
 
   return (
     <div className="bg-sky-200 px-10 pb-20 my-10">

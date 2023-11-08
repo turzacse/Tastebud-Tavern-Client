@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Order = () => {
     const {id} = useParams();
@@ -51,7 +52,14 @@ const Order = () => {
             },
             body: JSON.stringify(orderInfo)
         })
-        .then(res => res.json())
+        .then(res => {
+            res.json();
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Order Purcheced",
+              });
+        })
         .catch(error => console.log(error))
     }
     return (
@@ -72,7 +80,7 @@ const Order = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input defaultValue={order.price} name='price' type="text" placeholder="Food price" className="input input-bordered" required />
+                        <input defaultValue={order.price} name='price' readOnly type="text" placeholder="Food price" className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="lg:flex gap-5 ">

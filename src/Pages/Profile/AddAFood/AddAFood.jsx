@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddAFood = () => {
 
@@ -43,7 +44,14 @@ const AddAFood = () => {
             },
             body: JSON.stringify(food)
         })
-        .then(res => res.json())
+        .then(res => {
+            res.json();
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Successfully add A Food item",
+              });
+        })
         .catch(error => console.log(error))
 
     };
