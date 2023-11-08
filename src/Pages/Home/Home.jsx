@@ -6,12 +6,13 @@ import TopFood from "./TopFood/TopFood";
 
 const Home = () => {
     return (
-        <div>
+        <>
+        {/* <Meta title={'allfood'}/> */}
             <Banner></Banner>
             <TopFood></TopFood>
             <Offer></Offer>
             <ChouseUs></ChouseUs>
-        </div>
+        </>
     );
 };
 

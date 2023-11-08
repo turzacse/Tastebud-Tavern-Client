@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Foods from "./Foods";
+import Meta from "../Shared/Meta";
 
 
 const AllFood = () => {
@@ -11,7 +12,7 @@ const AllFood = () => {
 
     console.log(foods);
     useEffect(() => {
-        fetch('http://localhost:5000/allfoods')
+        fetch('https://b8a11-server-side-turzacse.vercel.app/allfoods')
             .then(res => res.json())
             .then(data => setFoods(data))
     }, []);
@@ -34,6 +35,8 @@ const AllFood = () => {
         setCurrentPage(id);
     }
     return (
+        <>
+        <Meta title={'allfood'}/>
         <div className="lg:m-20 m-10">
             <div className="text-center font-bold">
                 <h2 className="text-5xl">Our Food Menue</h2>
@@ -82,6 +85,8 @@ const AllFood = () => {
 
 
         </div>
+        </>
+        
     );
 };
 

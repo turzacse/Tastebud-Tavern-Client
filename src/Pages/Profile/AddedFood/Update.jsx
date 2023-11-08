@@ -8,7 +8,7 @@ const Update = () => {
     const [load, setLoad] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allfoods')
+        fetch('https://b8a11-server-side-turzacse.vercel.app/allfoods')
             .then(res => res.json())
             .then(data => {
                 const one = data.find(f => f._id === id);
@@ -37,7 +37,7 @@ const Update = () => {
 
         console.log(updateFood);
 
-        fetch(`http://localhost:5000/allfoods/${_id}`,{
+        fetch(`https://b8a11-server-side-turzacse.vercel.app/allfoods/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'

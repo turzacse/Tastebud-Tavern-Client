@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Foods = ({ food }) => {
     console.log(food);
     const {_id} = food;
+    const {user} = useContext(AuthContext);
+    console.log('here: ',user.email, food.email);
     return (
         <div>
             <div className="card card-compact bg-sky-200 shadow-xl">

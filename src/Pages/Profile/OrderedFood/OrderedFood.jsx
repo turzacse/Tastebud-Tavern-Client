@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { ImCross } from 'react-icons/im';
 import Swal from "sweetalert2";
+import Meta from "../../Shared/Meta";
 
 
 const OrderedFood = () => {
@@ -9,7 +10,7 @@ const OrderedFood = () => {
     const [myOrder, setMyOrder] = useState([]);
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch('http://localhost:5000/order',{credentials: 'include'})
+        fetch('https://b8a11-server-side-turzacse.vercel.app/order',{credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
@@ -35,7 +36,7 @@ const OrderedFood = () => {
           }).then((result) => {
             if (result.isConfirmed) {
               
-             fetch(`http://localhost:5000/order/${_id}`,{
+             fetch(`https://b8a11-server-side-turzacse.vercel.app/order/${_id}`,{
                 method: 'DELETE'
              })
              .then(res => res.json())
@@ -55,6 +56,8 @@ const OrderedFood = () => {
           })
     }
     return (
+        <>
+        <Meta title={"ordered food"}></Meta>
         <div className="mx-20 my-20 bg-sky-300 rounded-2xl">
             <div className="overflow-x-auto">
                 <table className="table">
@@ -95,6 +98,7 @@ const OrderedFood = () => {
                 </table>
             </div>
         </div>
+        </>
     );
 };
 

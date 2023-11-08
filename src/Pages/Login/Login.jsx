@@ -5,6 +5,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import auth from '../../Firebase/firebase.config';
+import Meta from '../Shared/Meta';
 
 const Login = () => {
 
@@ -41,7 +42,7 @@ const Login = () => {
     }
 
     const provider = new GoogleAuthProvider();
-    const handleGoogle = e =>{
+    const handleGoogle = e => {
         e.preventDefault();
         setError('');
         signInWithPopup(auth, provider)
@@ -58,45 +59,48 @@ const Login = () => {
 
     }
     return (
-        <div className="p-4 bg-sky-200">
+        <>
+        <Meta title={'login'}/>
+            <div className="p-4 bg-sky-200">
 
-            <div className="hero min-h-screen bg-white shadow-2xl rounded-2xl max-w-lg mx-auto">
-                <div className="hero-content flex-col ">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-3xl font-bold text-gray-600"><span className="text-red-800">Tastebud Tavern </span>Login</h1>
-                        <img className="h-1/2 w-1/2 mx-auto mt-2" src="https://i.ibb.co/sFCdQRR/login.png" alt="" />
-                    </div>
-                    <div className="card flex-shrink-0 w-full">
-                        <form onSubmit={handleLogIn} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input name='email' type="email" placeholder="email" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input name='password' type="password" placeholder="password" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn text-white border-none bg-[#FF3811]">Login</button>
-                            </div>
-                            {
-                                error && <p className='text-red-600 mt-4'>{error}</p>
-                            }
-                        </form>
-                        <div>
-                            <button onClick={handleGoogle} className="btn capitalize"><FcGoogle className='text-2xl'></FcGoogle> Continue with Google</button>
+                <div className="hero min-h-screen bg-white shadow-2xl rounded-2xl max-w-lg mx-auto">
+                    <div className="hero-content flex-col ">
+                        <div className="text-center lg:text-left">
+                            <h1 className="text-3xl font-bold text-gray-600"><span className="text-red-800">Tastebud Tavern </span>Login</h1>
+                            <img className="h-1/2 w-1/2 mx-auto mt-2" src="https://i.ibb.co/sFCdQRR/login.png" alt="" />
                         </div>
-                        <div>
-                            <p className='my-5'>Don't have na Account? Please <Link to='/register' className='text-red-500'>Register</Link></p>
+                        <div className="card flex-shrink-0 w-full">
+                            <form onSubmit={handleLogIn} className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control mt-6">
+                                    <button className="btn text-white border-none bg-[#FF3811]">Login</button>
+                                </div>
+                                {
+                                    error && <p className='text-red-600 mt-4'>{error}</p>
+                                }
+                            </form>
+                            <div>
+                                <button onClick={handleGoogle} className="btn capitalize"><FcGoogle className='text-2xl'></FcGoogle> Continue with Google</button>
+                            </div>
+                            <div>
+                                <p className='my-5'>Don't have na Account? Please <Link to='/register' className='text-red-500'>Register</Link></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

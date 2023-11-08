@@ -50,21 +50,21 @@ const router = createBrowserRouter([
         },
         {
           path: '/orderedfood',
-          element: <OrderedFood></OrderedFood>
+          element: <PrivateRoute><OrderedFood></OrderedFood></PrivateRoute>
         },
         {
           path: '/details/:id',
           element: <SingleFood></SingleFood>,
-          // loader: async({params}) => await fetch(`http://localhost:5000/allfoods/${params.id}`)
+          // loader: async({params}) => await fetch(`https://b8a11-server-side-turzacse.vercel.app/allfoods/${params.id}`)
         },
         {
           path: '/order/:id',
           element: <PrivateRoute><Order></Order></PrivateRoute>,
-          loader: async() => await fetch('http://localhost:5000/users') 
+          loader: async() => await fetch('https://b8a11-server-side-turzacse.vercel.app/users') 
         },
         {
           path: '/update/:id',
-          element: <Update></Update>,
+          element: <PrivateRoute><Update></Update></PrivateRoute>,
         }
       ]
     },

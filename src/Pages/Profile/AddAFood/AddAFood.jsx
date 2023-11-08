@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import Meta from '../../Shared/Meta';
 
 const AddAFood = () => {
 
@@ -10,7 +11,7 @@ const AddAFood = () => {
     const [users, setUsers] = useState([]);
 
      useEffect( ()=>{
-         fetch('http://localhost:5000/users')
+         fetch('https://b8a11-server-side-turzacse.vercel.app/users')
         .then(res =>res.json())
         .then(data => {
             const foundUser = data.find(u => u.email === user.email);
@@ -37,7 +38,7 @@ const AddAFood = () => {
         console.log(foodName, foodCategory,img, quantity, origin, price, addedBy, email, description);
         const food = {foodName, foodCategory,img, quantity, origin, price, addedBy, email, description};
 
-        fetch('http://localhost:5000/allfoods', {
+        fetch('https://b8a11-server-side-turzacse.vercel.app/allfoods', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -57,6 +58,8 @@ const AddAFood = () => {
     };
 
     return (
+        <>
+        <Meta title={"added a food"}></Meta>
         <div className='bg-sky-200 py-10'>
             <form onSubmit={handleAddItem} className="card-body w-1/2 mx-auto bg-white shadow-2xl rounded-xl">
                 <h1 className='text-center text-3xl font-bold'>Add a Food Item</h1>
@@ -128,6 +131,7 @@ const AddAFood = () => {
                 <input className="btn btn-primary my-4" type="submit" value="Add Food" />
             </form>
         </div>
+        </>
     );
 };
 

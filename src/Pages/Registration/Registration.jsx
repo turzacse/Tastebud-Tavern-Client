@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import Meta from "../Shared/Meta";
 
 const Registration = () => {
 
@@ -41,7 +42,7 @@ const Registration = () => {
         .then(result => {
             console.log(result.user);
             const user = {email, password,name, photo};
-            fetch('http://localhost:5000/users', {
+            fetch('https://b8a11-server-side-turzacse.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'
@@ -69,6 +70,8 @@ const Registration = () => {
     }
 
     return (
+        <>
+        <Meta title={"signup"}></Meta>
         <div>
             <div className="p-4 bg-sky-200">
 
@@ -123,6 +126,7 @@ const Registration = () => {
             </div>
 
         </div>
+        </>
     );
 };
 

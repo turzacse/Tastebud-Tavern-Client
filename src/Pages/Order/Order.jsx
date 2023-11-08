@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import Meta from "../Shared/Meta";
 
 const Order = () => {
     const {id} = useParams();
@@ -9,7 +10,7 @@ const Order = () => {
     const [load, setLoad] = useState(true);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch('http://localhost:5000/allfoods')
+        fetch('https://b8a11-server-side-turzacse.vercel.app/allfoods')
             .then(res => res.json())
             .then(data => {
                 const one = data.find(f => f._id === id);
@@ -45,7 +46,7 @@ const Order = () => {
         const orderInfo = {foodName, price, date, quantity, buyerName, buyerEmail};
         console.log(orderInfo);
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://b8a11-server-side-turzacse.vercel.app/order', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -63,6 +64,8 @@ const Order = () => {
         .catch(error => console.log(error))
     }
     return (
+        <>
+        <Meta title={"order"}></Meta>
         <div>
             {order ? (
                 <div>
@@ -122,6 +125,7 @@ const Order = () => {
                 <div>Loading...</div>
             )}
         </div>
+        </>
     );
 };
 

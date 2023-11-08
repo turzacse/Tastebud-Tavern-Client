@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
+import Meta from '../../Shared/Meta';
 
 const AddedFood = () => {
     const [foods, setFoods] = useState([]);
@@ -9,7 +10,7 @@ const AddedFood = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allfoods')
+        fetch('https://b8a11-server-side-turzacse.vercel.app/allfoods')
         .then(res => res.json())
         .then(data => {
             setFoods(data);
@@ -24,6 +25,8 @@ const AddedFood = () => {
 
     //console.log(foods, added, user.email);
     return (
+        <>
+        <Meta title={"added food"}></Meta>
         <div>
             <div className="mx-20 my-20 bg-sky-300 rounded-2xl">
             <div className="overflow-x-auto">
@@ -64,6 +67,7 @@ const AddedFood = () => {
             </div>
         </div>
         </div>
+        </>
     );
 };
 

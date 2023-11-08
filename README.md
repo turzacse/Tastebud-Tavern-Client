@@ -1,8 +1,15 @@
-# React + Vite
+# Tastebud Tavern
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Live Website
+Check out our live website [here](https://tastebud-tavern.web.app).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- User/Admin can login or signup in the website.
+- User can show our top 6 selling food as well as all food menue.
+- An user can Add a food Iteam, order food
+- User can show his/her ordered food and added food.
+- User can update the product details as well as delete the order.
+- An user can find his food by using searching functionality.
+- User can not purches those type of food that he/she added
