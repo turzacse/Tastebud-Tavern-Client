@@ -12,8 +12,8 @@ const Offer = () => {
                         <p className="pt-6 font-semibold text-xl text-sky-500">Keep our token that provided by us after completing your meal.</p>
                         <p className="py-3 text-orange-400 font-bold">We provide a random offer in every month in a random day!!! If you carry our token that previously received you in those random day, you will be the lucky one and get this special offer </p>
 
-                        <h2 className="text-3xl font-semibold py-3">Last Month offer data!</h2>
-                        <button className="btn bg-[#FF3811] text-white capitalize border-none text-2xl hover:bg-orange-300">20 August, 2023</button>
+                        <h2 className="text-3xl font-semibold py-3">Last Month offer date!</h2>
+                        <button className="btn bg-[#FF3811] text-white capitalize border-none lg:text-2xl hover:bg-orange-300">20 August, 2023</button>
                     </div>
                 </div>
             </div>
