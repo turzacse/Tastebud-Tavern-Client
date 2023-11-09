@@ -9,7 +9,7 @@ const Foods = ({ food }) => {
     //console.log('here: ',user.email, food.email);
     return (
         <div>
-            <div className="card card-compact bg-sky-200 shadow-xl">
+            <div className="card card-compact  shadow-xl">
                 <figure><img className="h-[200px] w-full rounded-2xl shadow-2xl" src={food.img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{food.foodName}</h2>
@@ -26,8 +26,6 @@ const Foods = ({ food }) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };

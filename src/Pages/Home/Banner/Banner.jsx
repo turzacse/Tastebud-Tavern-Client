@@ -1,4 +1,5 @@
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     //https://i.ibb.co/N2QgVMy/6-2.jpg
@@ -16,7 +17,7 @@ const Banner = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">Where Every Bite is a Masterpiece</h1>
                         <p className="mb-5"> Immerse yourself in a world of culinary artistry, where each dish is meticulously crafted to deliver an unforgettable dining experience. From the first bite to the last, savor the flavors, textures, and creativity that make every moment at our restaurant truly exceptional.</p>
-                        <button className="btn bg-[#FF3811] border-none text-white">Explore More <BsFillArrowUpRightCircleFill className='text-2xl'></BsFillArrowUpRightCircleFill></button>
+                        <Link to='/allfood' className="btn bg-[#FF3811] border-none text-white">Explore More <BsFillArrowUpRightCircleFill className='text-2xl'></BsFillArrowUpRightCircleFill></Link>
                     </div>
                 </div>
             </div>

@@ -13,3 +13,5 @@ Check out our live website [here](https://tastebud-tavern.web.app).
 - User can update the product details as well as delete the order.
 - An user can find his food by using searching functionality.
 - User can not purches those type of food that he/she added
+- Responsive Website 
+- Used the farmer-motion animation
