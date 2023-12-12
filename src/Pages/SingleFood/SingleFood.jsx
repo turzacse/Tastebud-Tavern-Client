@@ -29,13 +29,13 @@ const SingleFood = () => {
                 <div>
                     <div className=" bg-base-500">
                         <div className="hero-content flex-col lg:gap-10 md:gap-5 gap-2 lg:flex-row lg:w-3/4 mx-auto">
-                            <div className=" h-[400px] lg:w-1/3">
-                                <img src={food.img} className="w-full  rounded-2xl shadow-2xl" alt={food.foodName} />
+                            <div className="md:w-1/3">
+                                <img src={food.img} className="w-full  rounded-2xl shadow-2xl lg:h-[400px] md:h-[200px]" alt={food.foodName} />
                                 <h1 className="bg-sky-300 p-4 rounded-2xl md:mt-10 mt-5 lg:text-3xl text-2xl font-bold">{food.foodName}</h1>
                             </div>
                             <div className="md:w-2/3 w-full card-body bg-sky-200 shadow-2xl rounded-2xl">
                                 <h2>Food ctegory: {food.foodCategory}</h2>
-                                <h2>Price: {food.price}</h2>
+                                <h2>Price: ${food.price}</h2>
                                 <h2>Made by: {food.addedBy}</h2>
                                 <h2>Food Origin: {food.origin}</h2>
                                 <p className="py-6">{food.description}</p>

@@ -58,7 +58,7 @@ const OrderedFood = () => {
     return (
         <>
         <Meta title={"ordered food"}></Meta>
-        <div className="mx-20 my-20 bg-sky-300 rounded-2xl">
+        <div className="lg:mx-20 md:mx-10 mx-4 my-20 bg-sky-300 rounded-2xl">
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

@@ -28,9 +28,9 @@ const AddedFood = () => {
         <>
         <Meta title={"added food"}></Meta>
         <div>
-            <div className="mx-20 my-20 bg-sky-300 rounded-2xl">
+            <div className="lg:mx-20 md:mx-10 mx-4 my-20 bg-sky-300 rounded-2xl">
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table w-full">
                     {/* head */}
                     <thead className="bg-green-400 h-14">
                         <tr className="text-xl">

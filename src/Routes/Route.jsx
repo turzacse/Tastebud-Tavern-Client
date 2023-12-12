@@ -13,6 +13,7 @@ import Order from "../Pages/Order/Order";
 import Update from "../Pages/Profile/AddedFood/Update";
 import Error from "../Pages/Error/Error";
 import PrivateRoute from "./PrivateRoute";
+import About from "../Pages/About/About";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,10 @@ const router = createBrowserRouter([
         {
           path: '/allfood',
           element: <AllFood></AllFood>,
-
+        },
+        {
+          path: '/about',
+          element: <About/>
         },
         {
           path: '/login',

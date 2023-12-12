@@ -20,7 +20,7 @@ const TopFood = () => {
         <h2 className="lg:text-5xl text-3xl font-bold">Our Top Selling Foods</h2>
         <p className="lg:w-1/2 mx-auto my-4 text-gray-500">"Discover Culinary Bliss: Our Top Sellers. Taste the extraordinary! From succulent steaks to ocean-fresh seafood and gourmet delights, indulge in our finest creations. Satisfy your cravings at <span className="font-bold text-[#FF3811]">Tastebud Tavern</span></p>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         {topFood.map((food) => (
           <div key={food._id}>
             <div className="rounded-2xl p-4 bg-black text-white">
