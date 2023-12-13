@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "user": "John Doe",
+      "rating": 4.5,
+      "comment": "Great food and excellent service! Highly recommended.",
+      "date": "2023-11-20"
+    },
+    {
+      "id": 2,
+      "user": "Alice Smith",
+      "rating": 5,
+      "comment": "Amazing experience! The ambiance and food were fantastic.",
+      "date": "2023-10-15"
+    },
+    {
+      "id": 3,
+      "user": "Emily Johnson",
+      "rating": 3.5,
+      "comment": "Good food but service could be improved.",
+      "date": "2023-09-05"
+    },
+    {
+      "id": 4,
+      "user": "Michael Brown",
+      "rating": 4,
+      "comment": "Delicious dishes! Will definitely visit again.",
+      "date": "2023-08-12"
+    },
+    {
+      "id": 5,
+      "user": "Sophia Wilson",
+      "rating": 5,
+      "comment": "Outstanding experience! Loved every bit of it.",
+      "date": "2023-07-25"
+    }
+  ]
+  

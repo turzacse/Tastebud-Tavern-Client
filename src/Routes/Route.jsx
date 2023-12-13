@@ -14,6 +14,7 @@ import Update from "../Pages/Profile/AddedFood/Update";
 import Error from "../Pages/Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import About from "../Pages/About/About";
+import Review from "../Pages/Feedback/Review/Review";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         {
           path: '/about',
           element: <About/>
+        },
+        {
+          path: '/review',
+          element: <Review/>
         },
         {
           path: '/login',

@@ -20,6 +20,7 @@ const Navber = () => {
         <li><NavLink to='/allfood'>All Food Items</NavLink></li>
         <li><NavLink to='/Blog'>Blog</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
+        <li><NavLink to='/review'>Feedback</NavLink></li>
     </>
 
     const profile = <>
